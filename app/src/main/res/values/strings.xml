@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">NobareCoffeShop</string>
+    <string name="nobare_ncoffeshop">Nobare\nCoffeShop</string>
+    <string name="mulai">Mulai</string>
+    <string name="search">Search</string>
+    <string name="category">Category</string>
+    <string name="popular_coffe">Popular Coffe</string>
+    <string name="keranjang">Keranjang</string>
+    <string name="jelajahi">Jelajahi</string>
+    <string name="profile">Profile</string>
+</resources>

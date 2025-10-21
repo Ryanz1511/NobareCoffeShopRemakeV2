@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "976988381523",
+    "firebase_url": "https://nobarecoffeshop-default-rtdb.firebaseio.com",
+    "project_id": "nobarecoffeshop",
+    "storage_bucket": "nobarecoffeshop.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:976988381523:android:93ccd247cd7109c6ee81a6",
+        "android_client_info": {
+          "package_name": "com.example.nobarecoffeshop"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7vHs5VpMLr1ebgZFIk-1TLvvx7FvaVVo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
