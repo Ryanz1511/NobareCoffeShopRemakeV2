@@ -9,7 +9,9 @@ import com.example.nobarecoffeshop.R
 import com.example.nobarecoffeshop.ViewModel.MainViewModel
 import com.example.nobarecoffeshop.databinding.ActivityMainBinding
 import android.view.View
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
+import com.example.nobarecoffeshop.Adapter.CategoryAdapter
 
 
 class MainActivity : AppCompatActivity() {
@@ -21,9 +23,25 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         binding= ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         initBanner()
+        initCategory()
     }
+
+    private fun initCategory() {
+        binding.progressBarCategory.visibility= View.VISIBLE
+        viewModel.loadCategory().observeForever {
+            binding.categoryView
+                .layoutManager= LinearLayoutManager(
+                this@MainActivity,
+                LinearLayoutManager.HORIZONTAL,
+                false
+            )
+            binding.categoryView.adapter= CategoryAdapter(it)
+            binding.progressBarCategory.visibility= View.GONE
+        }
+        viewModel.loadCategory()
+    }
+
     private fun initBanner(){
         binding.progressBarBanner.visibility = android.view.View.VISIBLE
         viewModel.loadBanner().observeForever {
@@ -32,5 +50,6 @@ class MainActivity : AppCompatActivity() {
                 .into(binding.banner)
             binding.progressBarBanner.visibility= android.view.View.GONE
         }
+        viewModel.loadBanner()
     }
 }
