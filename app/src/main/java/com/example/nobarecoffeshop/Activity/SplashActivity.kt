@@ -1,4 +1,4 @@
-package com.example.nobarecoffeshop
+package com.example.nobarecoffeshop.Activity
 
 import android.content.Intent
 import android.os.Bundle
