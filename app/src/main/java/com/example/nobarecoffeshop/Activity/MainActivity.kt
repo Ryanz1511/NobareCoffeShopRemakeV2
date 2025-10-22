@@ -42,6 +42,8 @@ class MainActivity : AppCompatActivity() {
         viewModel.loadCategory()
     }
 
+
+
     private fun initBanner(){
         binding.progressBarBanner.visibility = android.view.View.VISIBLE
         viewModel.loadBanner().observeForever {
