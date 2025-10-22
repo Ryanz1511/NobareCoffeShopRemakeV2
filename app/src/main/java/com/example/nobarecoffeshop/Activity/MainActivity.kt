@@ -3,15 +3,14 @@ package com.example.nobarecoffeshop.Activity
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.example.nobarecoffeshop.R
 import com.example.nobarecoffeshop.ViewModel.MainViewModel
 import com.example.nobarecoffeshop.databinding.ActivityMainBinding
 import android.view.View
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.nobarecoffeshop.Adapter.CategoryAdapter
+import com.example.nobarecoffeshop.Adapter.PopularAdapter
 
 
 class MainActivity : AppCompatActivity() {
@@ -25,6 +24,17 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         initBanner()
         initCategory()
+        initPopular()
+    }
+
+    private fun initPopular() {
+        binding.progressBarPopular.visibility= View.VISIBLE
+            viewModel.loadPopular().observeForever {
+                binding.recyclerViewPopular.layoutManager= GridLayoutManager(this,2)
+                binding.recyclerViewPopular.adapter= PopularAdapter(it)
+                binding.progressBarPopular.visibility= View.GONE
+            }
+        viewModel.loadPopular()
     }
 
     private fun initCategory() {
@@ -45,12 +55,12 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun initBanner(){
-        binding.progressBarBanner.visibility = android.view.View.VISIBLE
+        binding.progressBarBanner.visibility = View.VISIBLE
         viewModel.loadBanner().observeForever {
             Glide.with(this@MainActivity)
                 .load(it[0].url)
                 .into(binding.banner)
-            binding.progressBarBanner.visibility= android.view.View.GONE
+            binding.progressBarBanner.visibility= View.GONE
         }
         viewModel.loadBanner()
     }
