@@ -1,10 +1,12 @@
 package com.example.nobarecoffeshop.Adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.nobarecoffeshop.Activity.DetailActivity
 import com.example.nobarecoffeshop.Domain.ItemsModel
 import com.example.nobarecoffeshop.databinding.ViewholderItemListBinding
 import java.text.NumberFormat
@@ -44,7 +46,9 @@ class ItemListCategoryAdapter(val items: MutableList<ItemsModel>) :
             .into(holder.binding.pic)
 
         holder.itemView.setOnClickListener {
-
+            val intent = Intent(context, DetailActivity::class.java)
+            intent.putExtra("object", items[position])
+            context.startActivity(intent)
         }
     }
 
