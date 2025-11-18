@@ -60,7 +60,9 @@ class DetailActivity : AppCompatActivity() {
 
             titleTxt.text=item.title
             descriptionTxt.text=item.description
-            priceTxt.text="$"+item.price
+
+            priceTxt.text="Rp "+item.price.toInt() // Menggunakan .toInt() untuk menghilangkan desimal
+
             ratingTxt.text=item.rating.toString()
 
             addToCartBtn.setOnClickListener {
